@@ -1,30 +1,30 @@
 return {
   -- Laravel-specific plugins
-  {
-    "adalessa/laravel.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "tpope/vim-dotenv",
-      "MunifTanjim/nui.nvim",
-    },
-    cmd = { "Sail", "Artisan", "Composer" },
-    keys = {
-      { "<leader>la", ":Artisan<cr>", desc = "Laravel Artisan" },
-      { "<leader>lr", ":Artisan route:list<cr>", desc = "Laravel Routes" },
-      { "<leader>lm", ":Artisan make:", desc = "Laravel Make" },
-    },
-  },
-
-  -- PHP Language Support
-  {
-    "phpactor/phpactor",
-    ft = "php",
-    build = "composer install --no-dev --optimize-autoloader",
-    config = function()
-      vim.keymap.set("n", "<Leader>pm", ":PhpactorContextMenu<CR>", { noremap = true, silent = true })
-    end,
-  },
-
+  -- {
+  --   "adalessa/laravel.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --     "tpope/vim-dotenv",
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   cmd = { "Sail", "Artisan", "Composer" },
+  --   keys = {
+  --     { "<leader>la", ":Artisan<cr>", desc = "Laravel Artisan" },
+  --     { "<leader>lr", ":Artisan route:list<cr>", desc = "Laravel Routes" },
+  --     { "<leader>lm", ":Artisan make:", desc = "Laravel Make" },
+  --   },
+  -- },
+  --
+  -- -- PHP Language Support
+  -- {
+  --   "phpactor/phpactor",
+  --   ft = "php",
+  --   build = "composer install --no-dev --optimize-autoloader",
+  --   config = function()
+  --     vim.keymap.set("n", "<Leader>pm", ":PhpactorContextMenu<CR>", { noremap = true, silent = true })
+  --   end,
+  -- },
+  --
   -- Blade Template Support
   {
     "jwalton512/vim-blade",
@@ -89,11 +89,11 @@ return {
   },
 
   -- Debugging
-  {
-    "mfussenegger/nvim-dap",
-    optional = true,
-    dependencies = {
-      "xdebug/xdebug",
-    },
-  },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   optional = true,
+  --   dependencies = {
+  --     "xdebug/xdebug",
+  --   },
+  -- },
 }
