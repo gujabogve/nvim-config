@@ -81,9 +81,12 @@ function M.diff_branch()
         local ft = vim.bo.filetype
         -- Open diff
         vim.cmd("vert diffsplit " .. temp_file)
-        vim.api.nvim_set_option_value("filetype", ft, { buf = 0 })
-        vim.api.nvim_set_option_value("buftype", "nofile", { buf = 0 })
-        vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = 0 })
+        local diff_buf = vim.api.nvim_get_current_buf()
+        pcall(vim.api.nvim_buf_set_name, diff_buf, branch .. ":" .. relative_file)
+        
+        vim.api.nvim_set_option_value("filetype", ft, { buf = diff_buf })
+        vim.api.nvim_set_option_value("buftype", "nofile", { buf = diff_buf })
+        vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = diff_buf })
 
         -- Auto-remove temporary file when buffer is closed
         vim.api.nvim_create_autocmd("BufDelete", {
